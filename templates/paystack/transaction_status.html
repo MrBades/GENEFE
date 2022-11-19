@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>T-bravo make_payment</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #7abecc !important;
+		}
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #74cfbf;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #fff;
+			
+		}
+
+		.login_btn {
+			width: 100%;
+			background: #33ccff !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		#messages{
+			color: #FF0ef0;
+			padding: 10px;
+			margin-top: 10px;
+		}		
+		
+		.nav_card {
+			width: 400px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #7abecc !important;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: raw;
+			
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+			text-align: center;
+			margin: auto;
+			height: 50px;
+
+		}
+
+		#balance{
+			width:auto%;
+			height:80%;
+			margin: 5px;
+		}
+
+		#user-logout{
+			width:auto;
+			height:80%;
+			margin: 5px;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: raw;
+		}
+
+		.user{
+			width:auto;
+			height:80%;
+			margin: 5px;
+			padding: auto;
+			flex-direction: raw;
+			color:#fff;
+		}
+
+		.logout{
+			width:auto;
+			height:80%;
+			margin: auto;
+			flex-direction: raw;
+		}
+
+		#transactions{
+			width:auto;
+			height:80%;
+			margin: 5px;
+			position: right;
+			display: flex;
+			justify-content: center;
+			flex-direction: raw;
+		}
+
+		.header1{
+			height:150Px;
+			background: #74cfbf;
+			background-image: url('{% static 'img/logo.png' %}');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			width:98%;
+			margin:auto;
+			margin-top:8px;
+			flex-direction: raw;
+			position: relative;
+			display: flex;
+			border-radius: 5px;
+		}
+
+		.logo-div{
+			height:95%;
+			width:35%;
+			margin:auto;
+		}
+
+		.logo{
+			height:90%;
+			width90%;
+			margin:auto;
+			padding:auto;
+		}
+
+		.title-des-div{
+			height:95%;
+			width:63%;
+			margin:auto;
+		}
+
+		.title-div{
+			height:49%;
+			width:100%;
+			margin:auto;
+			margin-top:1px;
+			text-align: center;
+		}
+
+		.des-div{
+			height:49%;
+			width:100%;
+			margin:auto;
+			margin-top:1px;
+			text-align: center;
+		}
+		
+	</style>
+
+</head>
+<body>
+
+	<div class="header1">
+		
+		<div class="title-des-div">
+			
+			<div class="title-div">
+				<h1>T-bravo</h1>
+				<hr>
+			</div>
+
+			<div class="des-div">
+				<hr>
+				<h5>Buy Data, TV subscription, Airtime, Light bill</h5>
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+
+
+					<h3 id="form-title">Payment Status</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					
+				{% for message in messages %}
+				<h5 id="messages">{{message}} of NGN: {{ amount }}</h5>
+				{% endfor %}	
+
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="copy_right text-center">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://Yeedem.com" target="_blank">Yeedem</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
+<!-- footer end  -->
+    <script>
+
+    </script>
+
+</body>
+
+</html>

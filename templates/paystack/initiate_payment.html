@@ -1,0 +1,51 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container h-100">
+	<div class="d-flex justify-content-center h-100">
+		<div class="user_card">
+			<div class="d-flex justify-content-center">
+
+				<h3 id="form-title">Your Contact</h3>
+			</div>
+			<hr><div class="d-flex justify-content-center form_container">
+				<form method="POST" action=".">
+					{% csrf_token %}
+					<h5 class="card-title">Only {{ product.stock }} {{ product.name }} remaining.</h5><br>
+					<h5 class="card-title">Price: Gh¢{{ product.price }}</h5>
+					<br>
+					<div class="input-group mb-3">
+						<div class="input-group-append">
+							Email<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+						</div>
+						{{address.email}}
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-append">
+							Phone<span class="input-group-text"><i class="fas fa-phone"></i></span>
+						</div>
+						{{address.phone}}
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-append">
+							Address<span class="input-group-text"><i class="fas fa-anchor"></i></span>
+						</div>
+						{{address.location}}
+					</div>
+					<div class="d-flex justify-content-center mt-3 login_container">
+						<input class="btn login_btn" type="submit" value="Proceed">
+					</div>
+				</form>
+				<script src="https://js.paystack.co/v1/inline.js"></script>
+			{% for message in messages %}
+				<p id="messages">{{message}}</p>
+			{% endfor %}			
+	
+		</div>
+	</div>
+</div>
+
+{% endblock %}

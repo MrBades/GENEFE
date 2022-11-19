@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Products</h1>
+	<div class="row">
+		{% for product in products %}
+			<div class="col">
+				<div class="card" style="width: 18rem;">
+					<a href="{% url 'products:buy' ref=product.ref %}">
+						<img src="{{ product.image }}" class="card-img-top" alt="{{ product.name }}"></a>
+					<div class="card-body">
+						<h5 class="card-title">Gh¢{{ product.price }}</h5>
+						<p class="card-text">{{ product.description }}</p>
+						<a href="{% url 'products:buy' ref=product.ref %}" class="btn login_btn">Buy</a>
+					</div>
+				  </div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

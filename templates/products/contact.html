@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<h1>Contact us</h1>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6 offset-sm-3 about-contact">
+				{% for message in messages %}
+				<p id="messages">{{message}}</p>
+				{% endfor %}
+				<form method="post">
+					<strong>We are located at No.23 Benz Gate, kokumlemle, Accra, Ghana
+						You can call us <b>+233209456296</b> or email us <b>allwise1234@gmail.com</b>
+						Or use the contact form bellow.</strong>
+					{{ contact.as_p }}
+					{% csrf_token %}
+					<div class="form-group">
+						<button class="btn login_btn" type="submit" onclick="payWithPayStack()">Send</button>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.querySelectorAll('input, textarea').forEach(e => {
+			e.classList.add('form-control');
+		})
+	</script>
+{% endblock %}
